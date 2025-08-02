@@ -73,7 +73,6 @@ export default function SeizeText({ word = "GANDHAR BAGDE" }) {
         backgroundColor: "#000",
         color: "#fff",
         padding:"5rem 5rem",
-        paddingBottom:"50rem"
       }}
     >
       {layers.map((layer, i) => (
