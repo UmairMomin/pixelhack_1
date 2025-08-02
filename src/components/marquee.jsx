@@ -39,7 +39,7 @@ export const CompanyMarquee = () => {
 
   return (
     <>
-      <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-center">
+      <p className="text-5xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-center">
         Discover the companies we've partnered with and the innovative solutions we've created together
       </p>
       <br />
@@ -88,7 +88,7 @@ export const CompanyMarquee = () => {
             <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-secondary/20 to-transparent pointer-events-none" />
           </div>
 
-          <p className="text-lg text-muted-foreground">
+          <p className="text-2xl mt-2 text-muted-foreground text-center">
             Join our growing network of successful partnerships
           </p>
         </div>
