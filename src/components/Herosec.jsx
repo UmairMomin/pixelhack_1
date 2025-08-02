@@ -70,7 +70,6 @@ export default function SeizeText({ word = "GANDHAR BAGDE" }) {
     
        <Box
       sx={{
-        backgroundColor: "#000",
         color: "#fff",
         padding:"5rem 5rem",
       }}

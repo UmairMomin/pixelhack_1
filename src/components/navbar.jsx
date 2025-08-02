@@ -1,81 +1,121 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+'use client';
+
+import React, { useState } from 'react';
+import {
+  Box,
+  Drawer,
+  IconButton,
+  Typography,
+  Button
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import styled from 'styled-components';
 
 export default function NavbarPage() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
+  const [open, setOpen] = useState(true);
+
+  const navItems = ['ABOUT US', 'WORKS', 'SERVICES'];
+
+  const MenuButton = styled(Button)({
+    backgroundColor: "black",
+    color: "#fff",
+    outline: "1px solid black",
+    padding:"5px",
+    borderRadius: 10,
+    padding: "0.5rem 1.5rem",
+    textTransform: "none",
+    fontWeight: 600,
+    transition: "all 0.3s ease-in-out",
+    boxShadow: "0px 0px 0px 0 #000000",
+    '&:hover': {
+      backgroundColor: "white",
+      color:"#000",
+      transform: "translateY(-4px)",
+      boxShadow: "0px 4px 0px 0 #000000"
+    },
   });
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+  const handleToggle = () => setOpen(!open);
+  
 
   return (
-    <div>
-      {['left', 'right', 'top', 'bottom'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
+    <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2 }}>
+      <MenuButton onClick={handleToggle}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <span>Menu</span>
+          <MenuIcon fontSize='10px'/>
+        </Box>
+      </MenuButton>
+
+      <Drawer
+        anchor="right"
+        open={open}
+        onClose={handleToggle}
+        PaperProps={{
+          sx: {
+            position:"absolute",
+            right:"10px",
+            width: '50rem',
+            height: '100vh',
+            borderRadius: 5,
+            backgroundColor: 'white',
+            boxShadow: 6,
+            overflow: 'hidden',
+            margin: "1rem",
+          },
+        }}
+      >
+        {/* Close button */}
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end',mt: 2, mr: 2, }}>
+        <MenuButton onClick={handleToggle}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <span>Close</span>
+              <CloseIcon fontSize='10px'/>
+            </Box>
+        </MenuButton>
+        </Box>
+
+        {/* Intro text */}
+        <Typography variant="body1" 
+        sx={{
+            p:2,
+            my: 2, 
+            fontWeight: 500
+            }}>
+          We make digital products for complex <br/>challenges: from mobile apps<br/> to enterprise systems.
+        </Typography>
+
+        {/* Navigation list */}
+        {navItems.map((item, index) => (
+          <Box
+            key={item}
+            sx={{
+              width:"100%",
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            //   backgroundColor: '',
+              p: 2,
+              borderTop: '1px solid #ccc',
+              borderBottom: '1px solid #ccc',
+              transition: 'background 0.3s',
+              '&:hover': {
+                backgroundColor: '#ffd8c4',
+              },
+            }}
+            // ffe9df ffd8c4
           >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
+            <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+              {item}
+            </Typography>
+            <IconButton>
+              <ArrowForwardIcon />
+            </IconButton>
+          </Box>
+        ))}
+      </Drawer>
+    </Box>
   );
 }
