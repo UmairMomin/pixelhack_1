@@ -90,7 +90,7 @@ const GridSection = () => {
   }, []);
 
   return (
-    <div className="bitcount-prop-single min-h-screen w-full flex flex-col justify-center items-center cursor-none">
+    <div className="bitcount min-h-screen w-full flex flex-col justify-center items-center cursor-none">
       {/* Custom cursor */}
       <div
         className="fixed pointer-events-none z-50 transition-transform duration-100 ease-out"
@@ -103,7 +103,7 @@ const GridSection = () => {
         <div className="w-10 h-10 border-2 border-white rounded-full bg-transparent"></div>
       </div>
      <div className="w-full h-full rounded-full bg-gradient-to-r from-[#58AEF1] to-pink-500 absolute -top-12 -right-14 blur-2xl opacity-10 pointer-events-none"></div>
-      <h1 className="bitcount-prop-single text-5xl text-center font-bold text-white mb-10">Our Services</h1>
+      <h1 className="bitcount text-5xl text-center font-bold text-white mb-10">Our Services</h1>
 
       <div className="w-full max-w-7xl px-10">
         <div
@@ -116,7 +116,7 @@ const GridSection = () => {
           {gridItems.map((item) => (
             <div
               key={item.id}
-              className="bitcount-prop-single flex items-center justify-center rounded-xl text-white text-2xl font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              className="bitcount flex items-center justify-center rounded-xl text-white text-2xl font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
               style={{
                 gridColumn: `${item.colStart} / ${item.colEnd}`,
                 gridRow: `${item.rowStart} / ${item.rowEnd}`,

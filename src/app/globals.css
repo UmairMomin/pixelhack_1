@@ -1,5 +1,16 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap');
+
+.bitcount {
+  font-family: 'Bitcount Prop Single', system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0.5,
+    "ELSH" 0,
+    "ELXP" 0;
+}
 
 :root {
   --background: #ffffff;
@@ -31,21 +42,3 @@ body {
   cursor: none !important;
 }
 
-/* Bitcount Prop Single font class */
-.bitcount-prop-single {
-  font-family: "Bitcount Prop Single", system-ui !important;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0,
-    "CRSV" 0.5,
-    "ELSH" 0,
-    "ELXP" 0;
-}
-
-/* Also apply to specific elements for testing */
-h1.bitcount-prop-single,
-div.bitcount-prop-single {
-  font-family: "Bitcount Prop Single", system-ui !important;
-}
