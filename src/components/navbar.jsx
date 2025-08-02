@@ -11,10 +11,10 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import styled from 'styled-components';
+import {styled} from 'styled-components';
 
 export default function NavbarPage() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const navItems = ['ABOUT US', 'WORKS', 'SERVICES'];
 
@@ -41,7 +41,7 @@ export default function NavbarPage() {
   
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2 }}>
+    <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2, backdropFilter: 'blur(10px)', }}>
       <MenuButton onClick={handleToggle}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <span>Menu</span>

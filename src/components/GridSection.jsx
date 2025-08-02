@@ -526,7 +526,7 @@ const GridSection = () => {
       </div>
 
       {/* Background */}
-      <div className="w-full h-full rounded-full bg-gradient-to-r from-[#58AEF1] to-pink-500 absolute -top-12 -right-14 blur-2xl opacity-10 pointer-events-none"></div>
+      {/* <div className="w-full h-full rounded-full bg-gradient-to-r from-[#58AEF1] to-pink-500 absolute -top-12 -right-14 blur-2xl opacity-10 pointer-events-none"></div> */}
 
       <h1 className="bitcount text-8xl text-center font-bold text-white mb-10">Our Services</h1>
 

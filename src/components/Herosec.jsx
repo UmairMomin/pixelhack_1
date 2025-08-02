@@ -3,7 +3,7 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
-export default function SeizeText({ word = "GANDHAR BAGDE" }) {
+export default function SeizeText({ word = "NEXUS STUDIOS" }) {
   const layers = Array.from({ length: word.length }, (_, i) =>
     word.slice(0, i + 1)
   );
